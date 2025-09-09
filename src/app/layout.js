@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "../components/Header/Header";
 
 const montserrat = localFont({
 src: [
@@ -9,7 +10,7 @@ src: [
     style: "normal",
   },
   {
-    path: "../../public/fonts/Montserrat-Medium.ttf",
+    path: "../../public/fonts/Montserrat-Bold.ttf",
     weight: "700",
     style: "normal",
   },
@@ -21,12 +22,16 @@ display: "swap",
 export const metadata = {
   title: "Farmácia Avena",
   description: "Farmácia Avena - Sua saúde em boas mãos",
+  icons: {
+    icon: "/icons/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" className={montserrat.variable}>
       <body className={montserrat.className}>
+        <Header />
         {children}
       </body>
     </html>

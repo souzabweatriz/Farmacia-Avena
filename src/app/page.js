@@ -1,95 +1,84 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"
+import styles from "./page.module.css"
+import  { useEffect, useState } from "react";
+import { Pagination } from "antd";
+import Link from "next/link";
+import Card from "../components/Card/Card";
+import { fixEncoding } from "../utils/fixEncoding";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [remedios, setRemedios] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(process.env.NEXT_PUBLIC_API_URL);
+        const data = await response.json();
+        setRemedios(data);
+      } catch (error) {
+        console.error("Erro ao buscar Remédios", error);
+      }
+    }
+    fetchData();
+  }, []);
+
+  const handlePageChange = (page, size) => {
+    setCurrentPage(page);
+    setPageSize(size);
+  };
+
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  const currentRemedios = remedios.slice(startIndex, endIndex);
+
+  return (
+    <div className={styles.container}>
+      <h1>Lista de Remédios</h1>
+      <div className={styles.list}>
+        {currentRemedios.map((remedio) => (
+          <Link
+            key={remedio.id || remedio.nome_remedio}
+            href={`/remedios/${remedio.id}`}
+            className={styles.item}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <Card remedio={{
+              ...remedio,
+              nome_remedio: fixEncoding(remedio.nome_remedio),
+              efeito_remedio: fixEncoding(remedio.efeito_remedio),
+              modo_preparo: fixEncoding(remedio.modo_preparo),
+              contraindicacoes: fixEncoding(remedio.contraindicacoes)
+            }} />
+          </Link>
+        ))}
+      </div>
+      <>
+      <Pagination
+        current={currentPage}
+        pageSize={pageSize}
+        total={remedios.length}
+        onChange={handlePageChange}
+        showSizeChanger
+        pageSizeOptions={[5, 10, 20, 50]}
+        style={{ marginTop: 24 }}
+      />
+      </>
+      <>
+        <ToastContainer 
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            </>
     </div>
   );
 }

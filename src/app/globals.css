@@ -1,9 +1,29 @@
+body {
+  padding-top: 6rem; /* ajuste conforme a altura real do header */
+}
 * {
   box-sizing: border-box;
-}
-
-html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+/* Paleta de Cores */
+
+/* Verde bem escuro */
+/* --cor-1: #07261D;  rgb(7, 38, 29) */
+
+/* Verde profundo */
+/*--cor-2: #115945; /* rgb(17, 89, 69) */
+
+/* Verde médio */
+/*--cor-3: #177351; /* rgb(23, 115, 81) */
+
+/* Verde claro */
+/*--cor-4: #7EBF83; /* rgb(126, 191, 131) */
+
+/* Verde amarelado */
+/*--cor-5: #A8BF54; /* rgb(168, 191, 84) */
+
+/* Bege Logo */
+/* rgb(239, 227, 204) */

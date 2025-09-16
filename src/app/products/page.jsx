@@ -1,10 +1,10 @@
 "use client"
-import styles from "./page.module.css"
+import styles from "./products.module.css"
 import  { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import Link from "next/link";
-import Card from "../components/Card/Card";
-import { fixEncoding } from "../utils/fixEncoding";
+import Card from "../../components/Card/Card";
+import { fixEncoding } from "../../utils/fixEncoding";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

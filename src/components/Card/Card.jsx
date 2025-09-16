@@ -7,15 +7,15 @@ export default function Card({ remedio }) {
         <div className={styles.card}>
             <Image
                 src={remedio.photo}
-                alt={fixEncoding(remedio.nome_remedio)}
+                alt={remedio.nome_remedio}
                 width={180}
                 height={120}
                 className={styles.imagem}
             />
-            <h2 className={styles.nomeRemedio}>{fixEncoding(remedio.nome_remedio)}</h2>
-            <p className={styles.itens}><strong>Efeito:</strong> {fixEncoding(remedio.efeito_remedio)}</p>
-            <p className={styles.itens}><strong>Modo de preparo:</strong> {fixEncoding(remedio.modo_preparo)}</p>
-            <p className={styles.itens}><strong>Contraindicações:</strong> {fixEncoding(remedio.contraindicacoes)}</p>
+            <h2 className={styles.itens}>{remedio.nome_remedio}</h2>
+            <p className={styles.itens}><strong>Efeito:</strong> {remedio.efeito_remedio}</p>
+            <p className={styles.itens}><strong>Modo de preparo:</strong> {remedio.modo_preparo}</p>
+            <p className={styles.itens}><strong>Contraindicações:</strong> {remedio.contraindicacoes}</p>
         </div>
     )
 }

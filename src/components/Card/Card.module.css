@@ -1,31 +1,48 @@
- .card {
-	 background: #fff;
-	 border-radius: 10px;
-	 box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-	 padding: 1.5rem;
-	 margin-bottom: 2rem;
-	 max-width: 350px;
-	 display: flex;
-	 flex-direction: column;
-	 align-items: center;
- }
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 20rem;
+    height: 20rem;
+    margin-top: 90px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    background-color: white;
+}
 
- .imagem {
-	 border-radius: 8px;
-	 margin-bottom: 1rem;
-	 object-fit: cover;
- }
+.card:hover{
+    transform: scale(1.05);
+}
 
- .nomeRemedio {
-	 font-size: 1.3rem;
-	 color: #07261D;
-	 margin-bottom: 0.5rem;
-	 text-align: center;
- }
+.card span{
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
- .itens {
-	 font-size: 1rem;
-	 color: #333;
-	 margin-bottom: 0.5rem;
-	 text-align: center;
- }
+.itens{
+	margin: 0.5rem 0;
+	color: #07261D;
+	font-size: 1rem;
+	text-decoration: none;
+}
+
+@media (max-width: 730px) {
+    .card{
+    padding-top: 90rem;
+}
+}
+
+@media (max-width: 414px) {
+    .card{
+    padding-top: 80rem;
+    }
+}

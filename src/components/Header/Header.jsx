@@ -2,8 +2,6 @@ import styles from "./Header.module.css"
 import Image from "next/image";
 import Link from "next/link";
 
-
-
 export default function Home() {
     return (
         <div className={styles.container}>
@@ -11,8 +9,8 @@ export default function Home() {
             className={styles.logo}
             src="/images/logoAvena.png"
             alt="Farmácia Avena Logo"
-            width={100}
-            height={100}
+            width={120}
+            height={110}
             />
             <div className={styles.links}>
             <Link href="/" className={styles.link}>Home</Link>

@@ -2,41 +2,43 @@
 import styles from "./page.module.css"
 import { useState, useEffect } from "react";
 
-const categorias = [
-  { id: 1, nome: "Relaxante" },
-  { id: 2, nome: "Digestivo" },
-  { id: 3, nome: "Dor no Corpo" },
-  { id: 4, nome: "Insônia" },
-  { id: 5, nome: "Gripe" },
-  { id: 6, nome: "Dor de Cabeça" },
-  { id: 7, nome: "Cólicas" },
-  { id: 8, nome: "Queimação" }
-];
-
-// Perguntas apenas para enfeite - não afetam a recomendação do chá
+// Perguntas enfeite
 const perguntasEnfeite = [
   { id: "horario", texto: "Que horário do dia você prefere tomar chá?", opcoes: ["Manhã", "Tarde", "Noite"] },
   { id: "temperatura", texto: "Você prefere chá quente ou gelado?", opcoes: ["Quente", "Gelado"] }
 ];
 
 export default function Home() {
+  const [categorias, setCategorias] = useState([]);
   const [categoria, setCategoria] = useState("");
   const [enfeite, setEnfeite] = useState({});
   const [resultado, setResultado] = useState(null);
   const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState("");
 
-  // Buscar um chá da categoria escolhida
+ useEffect(() => {
+    const fetchCategorias = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categorias`);
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        setCategorias(data);
+      } catch {
+        setErro("Erro ao buscar categorias");
+      }
+    };
+    fetchCategorias();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setErro("");
     setResultado(null);
     try {
-      const res = await fetch(`http://localhost:4000/api/remedios`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/remedios`);
       if (!res.ok) throw new Error("Erro ao buscar chás");
       const data = await res.json();
-      // pega o primeiro chá da categoria escolhida
       const cha = data.find(r => r.categoria_id === Number(categoria));
       setResultado(cha || null);
     } catch (err) {
@@ -60,7 +62,7 @@ export default function Home() {
         {!resultado && (
           <form onSubmit={handleSubmit} style={{maxWidth: 500, margin: "2rem auto", display: "flex", flexDirection: "column", gap: "2rem"}}>
             <div>
-              <strong>Como você está se sentindo?</strong>
+              <strong>Qual é o chá necessário?</strong>
               <div style={{display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "1rem"}}>
                 {categorias.map(cat => (
                   <label key={cat.id} style={{cursor: "pointer", padding: "0.7rem 1.2rem", border: categoria == cat.id ? "2px solid #4D8C63" : "1px solid #ccc", borderRadius: 12, background: categoria == cat.id ? "#e6f4ea" : "#fff", fontWeight: 500}}>
@@ -72,7 +74,7 @@ export default function Home() {
                       onChange={() => setCategoria(cat.id)}
                       style={{display: "none"}}
                     />
-                    {cat.nome}
+                    {cat.nome_categoria}
                   </label>
                 ))}
               </div>

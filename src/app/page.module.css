@@ -1,39 +1,89 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    gap: 1rem;
+  min-height: 100vh;
+  background: #fff;
+  padding: 2rem 0;
 }
-
 .title {
-    font-weight: bold;
-    background: linear-gradient(90deg, #8F9FBF, #4D8C63, #9bbcb9);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: rainbow 5s infinite alternate;
+  text-align: center;
+  margin-bottom: 2rem;
 }
-
-@keyframes rainbow {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    100% {
-        background-position: 100% 50%;
-    }
+.content {
+  max-width: 700px;
+  margin: 0 auto;
 }
-
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 18rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
-
-.label {
-    margin-right: 16px;
+.categoriasWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+.categoriaLabel {
+  cursor: pointer;
+  padding: 1.2rem 2rem;
+  font-size: 1.3rem;
+  border-radius: 18px;
+  font-weight: 600;
+  min-width: 140px;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  background: #fff;
+  transition: all 0.2s;
+}
+.categoriaLabelSelecionada {
+  border: 2px solid #4D8C63;
+  background: #e6f4ea;
+}
+.enfeiteWrap {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.enfeiteLabel {
+  cursor: pointer;
+  padding: 0.7rem 1.3rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  background: #fff;
+  transition: all 0.2s;
+}
+.enfeiteLabelSelecionada {
+  border: 2px solid #4D8C63;
+  background: #e6f4ea;
+}
+.submitBtn {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background-color: #4D8C63;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.submitBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.erro {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+}
+.resultadoBox {
+  margin-top: 2rem;
+  background: #f6f6f6;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
 }

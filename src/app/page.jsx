@@ -5,7 +5,15 @@ import { useState, useEffect } from "react";
 // Perguntas enfeite
 const perguntasEnfeite = [
   { id: "horario", texto: "Que horário do dia você prefere tomar chá?", opcoes: ["Manhã", "Tarde", "Noite"] },
-  { id: "temperatura", texto: "Você prefere chá quente ou gelado?", opcoes: ["Quente", "Gelado"] }
+  { id: "temperatura", texto: "Você prefere chá quente ou gelado?", opcoes: ["Quente", "Gelado"] },
+  { id: "frequencia", texto: "Com que frequência você toma chá?", opcoes: ["Diariamente", "Semanalmente", "Ocasionalmente"] },
+  { id: "sabor", texto: "Qual sabor de chá você prefere?", opcoes: ["Frutado", "Herbal", "Cítrico", "Doce"] },
+  { id: "beneficio", texto: "Qual benefício você busca no chá?", opcoes: ["Relaxamento", "Energização", "Digestão", "Imunidade"] },
+  { id: "ingredientes", texto: "Você tem alguma preferência por ingredientes específicos?", opcoes: ["Camomila", "Hortelã", "Gengibre", "Erva-doce", "Outro"] },
+  { id: "açúcar", texto: "Você prefere chá com ou sem açúcar?", opcoes: ["Com açúcar", "Sem açúcar", "Com adoçante"] },
+  { id: "cafeína", texto: "Você prefere chá com ou sem cafeína?", opcoes: ["Com cafeína", "Sem cafeína"] },
+  { id: "quantidade", texto: "Quantas xícaras de chá você gostaria de tomar por dia?", opcoes: ["1-2", "3-4", "5 ou mais"] },
+  { id: "ocasião", texto: "Em que ocasião você costuma tomar chá?", opcoes: ["Relaxar em casa", "No trabalho", "Com amigos/família", "Outro"] },
 ];
 
 export default function Home() {
@@ -60,10 +68,12 @@ export default function Home() {
       </div>
       <div className={styles.content}>
         {!resultado && (
-          <form onSubmit={handleSubmit} style={{maxWidth: 500, margin: "2rem auto", display: "flex", flexDirection: "column", gap: "2rem"}}>
+          <form 
+          onSubmit={handleSubmit} 
+          className={styles.form}>
             <div>
-              <strong>Qual é o chá necessário?</strong>
-              <div style={{display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "1rem"}}>
+              <p>O que você está sentindo?</p>
+              <div className={styles.categorias}>
                 {categorias.map(cat => (
                   <label key={cat.id} style={{cursor: "pointer", padding: "0.7rem 1.2rem", border: categoria == cat.id ? "2px solid #4D8C63" : "1px solid #ccc", borderRadius: 12, background: categoria == cat.id ? "#e6f4ea" : "#fff", fontWeight: 500}}>
                     <input
@@ -82,9 +92,9 @@ export default function Home() {
             {perguntasEnfeite.map(perg => (
               <div key={perg.id}>
                 <strong>{perg.texto}</strong>
-                <div style={{display: "flex", gap: "1rem", marginTop: "0.5rem"}}>
+                <div className={styles.enfeites}>
                   {perg.opcoes.map(op => (
-                    <label key={op} style={{cursor: "pointer", padding: "0.5rem 1rem", border: enfeite[perg.id] === op ? "2px solid #4D8C63" : "1px solid #ccc", borderRadius: 10, background: enfeite[perg.id] === op ? "#e6f4ea" : "#fff"}}>
+                    <label key={op} className={styles.label + " " + (enfeite[perg.id] === op ? styles.enfeiteLabelSelecionada : "")}>
                       <input
                         type="radio"
                         name={perg.id}
@@ -99,20 +109,32 @@ export default function Home() {
                 </div>
               </div>
             ))}
-            <button type="submit" disabled={!categoria} style={{marginTop: "2rem", padding: "0.8rem 2rem", backgroundColor: categoria ? "#4D8C63" : "#ccc", color: "white", border: "none", borderRadius: "8px", fontSize: "1rem", cursor: categoria ? "pointer" : "not-allowed"}}>Ver chá recomendado</button>
+            <button type="submit" disabled={!categoria} className={styles.submitButton}>Ver chá recomendado</button>
           </form>
         )}
-        {loading && <p>Buscando chá recomendado...</p>}
-        {erro && <p style={{color: 'red'}}>{erro}</p>}
+        {loading && <p className={styles.loadingMessage}>Buscando chá recomendado...</p>}
+        {erro && <p className={styles.errorMessage}>{erro}</p>}
         {resultado && (
-          <div style={{marginTop: '2rem', background: '#f6f6f6', padding: '1rem', borderRadius: '8px', textAlign: 'center'}}>
-            <h3>Chá recomendado:</h3>
-            <h4>{resultado.nome_remedio}</h4>
-            {resultado.photo && <img src={resultado.photo} alt={resultado.nome_remedio} width="200" style={{borderRadius: 8}} />}
-            <p><b>Efeito:</b> {resultado.efeito_remedio}</p>
-            <p><b>Modo de preparo:</b> {resultado.modo_preparo}</p>
-            <p><b>Contraindicações:</b> {resultado.contraindicacoes}</p>
-            <button onClick={() => { setResultado(null); setCategoria(""); setEnfeite({}); }}>Escolher outro chá</button>
+          <div className={styles.resultadoBox}>
+            <h3 className={styles.resultTitle}>Chá recomendado:</h3>
+            <h4 className={styles.resultSubtitle}>{resultado.nome_remedio}</h4>
+            {resultado.photo && (
+              <img 
+                src={resultado.photo} 
+                alt={resultado.nome_remedio} 
+                width="200" 
+                className={styles.resultImage}
+              />
+            )}
+            <p className={styles.resultText}><b>Efeito:</b> {resultado.efeito_remedio}</p>
+            <p className={styles.resultText}><b>Modo de preparo:</b> {resultado.modo_preparo}</p>
+            <p className={styles.resultText}><b>Contraindicações:</b> {resultado.contraindicacoes}</p>
+            <button 
+              className={styles.resetButton}
+              onClick={() => { setResultado(null); setCategoria(""); setEnfeite({}); }}
+            >
+              Escolher outro chá
+            </button>
           </div>
         )}
       </div>

@@ -4,23 +4,33 @@ import  { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import Link from "next/link";
 import Card from "../../components/Card/Card";
-import { fixEncoding } from "../../utils/fixEncoding";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const [remedios, setRemedios] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(process.env.NEXT_PUBLIC_API_URL);
+        setLoading(true);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/remedios`);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
-        setRemedios(data);
+        setRemedios(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("Erro ao buscar Remédios", error);
+        toast.error("Erro ao carregar remédios. Tente novamente.");
+        setRemedios([]);
+      } finally {
+        setLoading(false);
       }
     }
     fetchData();
@@ -35,27 +45,36 @@ export default function Home() {
   const endIndex = startIndex + pageSize;
   const currentRemedios = remedios.slice(startIndex, endIndex);
 
+  if (loading) {
+    return (
+      <div className={styles.ifLoading}>
+        <h1>Lista de Remédios</h1>
+        <div style={{ textAlign: 'center', padding: '2rem' }}>
+          <p>Carregando remédios...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.container}>
       <h1>Lista de Remédios</h1>
       <div className={styles.list}>
-        {currentRemedios.map((remedio) => (
-          <Link
-            key={remedio.id || remedio.nome_remedio}
-            href={`/remedios/${remedio.id}`}
-            className={styles.item}
-          >
-            <Card remedio={{
-              ...remedio,
-              nome_remedio: fixEncoding(remedio.nome_remedio),
-              efeito_remedio: fixEncoding(remedio.efeito_remedio),
-              modo_preparo: fixEncoding(remedio.modo_preparo),
-              contraindicacoes: fixEncoding(remedio.contraindicacoes)
-            }} />
-          </Link>
-        ))}
+        {currentRemedios.length > 0 ? (
+          currentRemedios.map((remedio, index) => (
+            <Link
+              key={remedio.id || `${remedio.nome_remedio}-${index}`}
+              href={`/remedios/${remedio.id}`}
+              className={styles.item}
+            >
+              <Card remedio={remedio} />
+            </Link>
+          ))
+        ) : (
+          <p style={{ textAlign: 'center', width: '100%' }}>Nenhum remédio encontrado.</p>
+        )}
       </div>
-      <>
+      
       <Pagination
         current={currentPage}
         pageSize={pageSize}
@@ -65,20 +84,19 @@ export default function Home() {
         pageSizeOptions={[5, 10, 20, 50]}
         style={{ marginTop: 24 }}
       />
-      </>
-      <>
-        <ToastContainer 
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-            </>
+      
+      <ToastContainer 
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        containerId="toast-container"
+      />
     </div>
   );
 }

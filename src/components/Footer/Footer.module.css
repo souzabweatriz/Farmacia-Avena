@@ -12,6 +12,15 @@ opacity: 0.9;
 gap: 1rem;
 }
 
+.itens{
+    width: 70%;
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .link{
     color: #fffef4;
     text-decoration: none;

@@ -1,67 +1,100 @@
-.container {
-  min-height: 100vh;
-  background: #fff;
-  padding: 2rem 0;
-}
-.title {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.content {
-  max-width: 700px;
-  margin: 0 auto;
-}
-.form {
-  max-width: 600px;
-  margin: 2rem auto;
+.container{
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100vw;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
-.categoriasWrap {
+
+.categorias{
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
-  margin-top: 1.2rem;
-}
-.categoriaLabel {
-  cursor: pointer;
-  padding: 1.2rem 2rem;
-  font-size: 1.3rem;
-  border-radius: 18px;
-  font-weight: 600;
-  min-width: 140px;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  border: 1px solid #ccc;
-  background: #fff;
-  transition: all 0.2s;
-}
-.categoriaLabelSelecionada {
-  border: 2px solid #4D8C63;
-  background: #e6f4ea;
-}
-.enfeiteWrap {
-  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 600px;
 }
-.enfeiteLabel {
+
+.title {
+  font-weight: bold;
+  background: linear-gradient(90deg, #8F9FBF, #4D8C63, #9bbcb9);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 5s infinite alternate;
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.enfeites{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.label{
   cursor: pointer;
-  padding: 0.7rem 1.3rem;
-  border-radius: 12px;
-  font-size: 1.1rem;
+  padding: 0.6rem 1.2rem;
   border: 1px solid #ccc;
+  border-radius: 8px;
   background: #fff;
   transition: all 0.2s;
+  text-align: center;
+  font-size: 0.9rem;
+  min-width: 80px;
+  white-space: nowrap;
 }
-.enfeiteLabelSelecionada {
-  border: 2px solid #4D8C63;
-  background: #e6f4ea;
-}
-.submitBtn {
-  margin-top: 2rem;
-  padding: 0.8rem 2rem;
+
+.submitButton {
+  margin: 2rem auto 0 auto;
+  padding: 1rem 2.5rem;
   background-color: #4D8C63;
   color: white;
   border: none;
@@ -70,20 +103,164 @@
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
+  display: block;
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
 }
-.submitBtn:disabled {
+
+.submitButton:hover {
+  background-color: #3a6b4a;
+}
+
+.submitButton:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
-.erro {
-  color: red;
-  text-align: center;
-  margin-top: 1rem;
+
+.enfeiteLabelSelecionada {
+  border: 2px solid #4D8C63;
+  background: #e6f4ea;
+  font-weight: 600;
 }
+
 .resultadoBox {
-  margin-top: 2rem;
+  margin: 2rem auto 0 auto;
   background: #f6f6f6;
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 12px;
   text-align: center;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.loadingMessage {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 400px;
+}
+
+.errorMessage {
+  color: #d63384;
+  text-align: center;
+  font-weight: 600;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #f8d7da;
+  border: 1px solid #f5c2c7;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.resultImage {
+  border-radius: 12px;
+  margin: 1.5rem auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.resultTitle {
+  margin-bottom: 1rem;
+  color: #224040;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.resultSubtitle {
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.resultText {
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #555;
+  max-width: 100%;
+}
+
+.resultText b {
+  color: #224040;
+  font-weight: 700;
+}
+
+.resetButton {
+  margin: 2rem auto 0 auto;
+  padding: 1rem 2rem;
+  background-color: #4D8C63;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: block;
+  text-align: center;
+  max-width: 250px;
+  width: 100%;
+}
+
+.resetButton:hover {
+  background-color: #3a6b4a;
+}
+
+/* Garantir que nada saia para fora */
+.form > div {
+  width: 100%;
+  max-width: 500px;
+  margin: 1rem auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form > div > p,
+.form > div > strong {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .form {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+  
+  .enfeites {
+    max-width: 100%;
+    gap: 0.5rem;
+  }
+  
+  .label {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+    min-width: 70px;
+  }
+  
+  .resultadoBox {
+    margin: 1rem auto 0 auto;
+    padding: 1.5rem 1rem;
+  }
 }

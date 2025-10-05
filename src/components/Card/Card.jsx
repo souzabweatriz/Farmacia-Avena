@@ -1,21 +1,27 @@
 import styles from "./Card.module.css";
 import Image from "next/image";
-import { fixEncoding } from "../../utils/fixEncoding";
 
 export default function Card({ remedio }) {
+    if (!remedio) {
+        return null;
+    }
+
     return (
         <div className={styles.card}>
             <Image
-                src={remedio.photo}
-                alt={remedio.nome_remedio}
-                width={180}
-                height={120}
+                src={remedio.photo || '/images/placeholder.svg'}
+                alt={remedio.nome_remedio || 'Remédio'}
+                width={400}
+                height={300}
                 className={styles.imagem}
+                onError={(e) => {
+                    e.target.src = '/images/placeholder.svg';
+                }}
             />
-            <h2 className={styles.itens}>{remedio.nome_remedio}</h2>
-            <p className={styles.itens}><strong>Efeito:</strong> {remedio.efeito_remedio}</p>
-            <p className={styles.itens}><strong>Modo de preparo:</strong> {remedio.modo_preparo}</p>
-            <p className={styles.itens}><strong>Contraindicações:</strong> {remedio.contraindicacoes}</p>
+            <h2 className={styles.itens}>{remedio.nome_remedio || 'Nome não disponível'}</h2>
+            <p className={styles.itens}><strong>Efeito:</strong> {remedio.efeito_remedio || 'Não informado'}</p>
+            <p className={styles.itens}><strong>Modo de preparo:</strong> {remedio.modo_preparo || 'Não informado'}</p>
+            <p className={styles.itens}><strong>Contraindicações:</strong> {remedio.contraindicacoes || 'Não informado'}</p>
         </div>
-    )
+    );
 }

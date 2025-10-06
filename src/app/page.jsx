@@ -1,6 +1,7 @@
 "use client"
 import styles from "./page.module.css"
 import { useState, useEffect } from "react";
+import { Carousel } from 'antd';
 
 // Perguntas enfeite
 const perguntasEnfeite = [
@@ -60,83 +61,48 @@ export default function Home() {
     setEnfeite(prev => ({ ...prev, [id]: value }));
   };
 
+  const carouselContentStyle = {
+    margin: 0,
+    height: '20rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: '#fff',
+    lineHeight: '200px',
+    textAlign: 'center',
+    background: 'linear-gradient(135deg, #086047ff, #224040)',
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>
         <h1>Farmácia Avena 🌿</h1>
         <p>Sua saúde em primeiro lugar!</p>
       </div>
-      <div className={styles.content}>
-        {!resultado && (
-          <form 
-          onSubmit={handleSubmit} 
-          className={styles.form}>
-            <div>
-              <p>O que você está sentindo?</p>
-              <div className={styles.categorias}>
-                {categorias.map(cat => (
-                  <label key={cat.id} style={{cursor: "pointer", padding: "0.7rem 1.2rem", border: categoria == cat.id ? "2px solid #4D8C63" : "1px solid #ccc", borderRadius: 12, background: categoria == cat.id ? "#e6f4ea" : "#fff", fontWeight: 500}}>
-                    <input
-                      type="radio"
-                      name="categoria"
-                      value={cat.id}
-                      checked={categoria == cat.id}
-                      onChange={() => setCategoria(cat.id)}
-                      style={{display: "none"}}
-                    />
-                    {cat.nome_categoria}
-                  </label>
-                ))}
-              </div>
-            </div>
-            {perguntasEnfeite.map(perg => (
-              <div key={perg.id}>
-                <strong>{perg.texto}</strong>
-                <div className={styles.enfeites}>
-                  {perg.opcoes.map(op => (
-                    <label key={op} className={styles.label + " " + (enfeite[perg.id] === op ? styles.enfeiteLabelSelecionada : "")}>
-                      <input
-                        type="radio"
-                        name={perg.id}
-                        value={op}
-                        checked={enfeite[perg.id] === op}
-                        onChange={() => handleEnfeite(perg.id, op)}
-                        style={{display: "none"}}
-                      />
-                      {op}
-                    </label>
-                  ))}
-                </div>
-              </div>
-            ))}
-            <button type="submit" disabled={!categoria} className={styles.submitButton}>Ver chá recomendado</button>
-          </form>
-        )}
-        {loading && <p className={styles.loadingMessage}>Buscando chá recomendado...</p>}
-        {erro && <p className={styles.errorMessage}>{erro}</p>}
-        {resultado && (
-          <div className={styles.resultadoBox}>
-            <h3 className={styles.resultTitle}>Chá recomendado:</h3>
-            <h4 className={styles.resultSubtitle}>{resultado.nome_remedio}</h4>
-            {resultado.photo && (
-              <img 
-                src={resultado.photo} 
-                alt={resultado.nome_remedio} 
-                width="200" 
-                className={styles.resultImage}
-              />
-            )}
-            <p className={styles.resultText}><b>Efeito:</b> {resultado.efeito_remedio}</p>
-            <p className={styles.resultText}><b>Modo de preparo:</b> {resultado.modo_preparo}</p>
-            <p className={styles.resultText}><b>Contraindicações:</b> {resultado.contraindicacoes}</p>
-            <button 
-              className={styles.resetButton}
-              onClick={() => { setResultado(null); setCategoria(""); setEnfeite({}); }}
-            >
-              Escolher outro chá
-            </button>
+      <div className={styles.carouselContainer}>
+        <Carousel 
+          arrows 
+          infinite={true} 
+          autoplay 
+          autoplaySpeed={4000}
+          dotPosition="bottom"
+        >
+          <div>
+            <h3 style={carouselContentStyle}>🌿 Remédios Naturais</h3>
           </div>
-        )}
+          <div>
+            <h3 style={carouselContentStyle}>🍃 Chás Medicinais</h3>
+          </div>
+          <div>
+            <h3 style={carouselContentStyle}>💚 Sua Saúde Natural</h3>
+          </div>
+          <div>
+            <h3 style={carouselContentStyle}>🌱 Bem-estar Completo</h3>
+          </div>
+        </Carousel>
       </div>
     </div>
   );

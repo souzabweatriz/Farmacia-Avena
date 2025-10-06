@@ -19,9 +19,9 @@ export default function Card({ remedio }) {
                 }}
             />
             <h2 className={styles.itens}>{remedio.nome_remedio || 'Nome não disponível'}</h2>
-            <p className={styles.itens}><strong>Efeito:</strong> {remedio.efeito_remedio || 'Não informado'}</p>
-            <p className={styles.itens}><strong>Modo de preparo:</strong> {remedio.modo_preparo || 'Não informado'}</p>
-            <p className={styles.itens}><strong>Contraindicações:</strong> {remedio.contraindicacoes || 'Não informado'}</p>
+            <p className={styles.itens}><strong>Effect:</strong> {remedio.efeito_remedio || 'Não informado'}</p>
+            <p className={styles.itens}><strong>Preparation method:</strong> {remedio.modo_preparo || 'Não informado'}</p>
+            <p className={styles.itens}><strong>Contraindications:</strong> {remedio.contraindicacoes || 'Não informado'}</p>
         </div>
     );
 }

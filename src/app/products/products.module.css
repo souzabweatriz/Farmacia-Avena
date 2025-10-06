@@ -17,12 +17,49 @@
   padding: 0;
   margin: 0;
 }
+.ifLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  width: 100%;
+  padding: 2rem;
+}
 
-.loading {
+.loadingText {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4D8C63;
+  margin-top: 1.5rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.noResults {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #666;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.spinner {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #e6f4ea;
+  border-top: 5px solid #4D8C63;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
 
 .loading p {

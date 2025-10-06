@@ -31,9 +31,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" className={montserrat.variable}>
-      <body className={montserrat.className}>
+      <body className={montserrat.className} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Header />
-        {children}
+          {children}
         <Footer />
       </body>
     </html>

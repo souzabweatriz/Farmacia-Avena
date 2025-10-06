@@ -49,8 +49,9 @@ export default function Home() {
     return (
       <div className={styles.ifLoading}>
         <h1>Lista de Remédios</h1>
-        <div style={{ textAlign: 'center', padding: '2rem' }}>
-          <p>Carregando remédios...</p>
+        <div className={styles.loading}>
+          <div className={styles.spinner}></div>
+          <p className={styles.loadingText}>Carregando remédios...</p>
         </div>
       </div>
     );
@@ -71,7 +72,7 @@ export default function Home() {
             </Link>
           ))
         ) : (
-          <p style={{ textAlign: 'center', width: '100%' }}>Nenhum remédio encontrado.</p>
+          <p className={styles.noResults}>Nenhum remédio encontrado.</p>
         )}
       </div>
       

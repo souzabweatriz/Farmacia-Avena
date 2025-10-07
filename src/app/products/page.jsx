@@ -17,7 +17,7 @@ export default function Home() {
     async function fetchData() {
       try {
         setLoading(true);
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/remedios/${id}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/remedios`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

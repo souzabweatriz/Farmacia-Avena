@@ -1,44 +1,46 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { Card, Spin, Button, Descriptions } from "antd";
-import { ArrowLeftOutlined, FileImageOutlined, MedicineBoxOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined, UserOutlined, EnvironmentOutlined, BankOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import axios from "axios";
 import styles from "./[id].module.css";
 
 export default function RemedyDetail({ params }) {
-    const { id } = params; // Obtém o ID diretamente dos parâmetros
     const [remedy, setRemedy] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const resolvedParams = use(params);
+
     useEffect(() => {
         if (!id) return;
-
         const fetchRemedy = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/remedios/categoria/${id}`); // URL corrigida
-                if (response.status === 404) {
-                    throw new Error("Remédio não encontrado");
-                }
-                setRemedy(response.data);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/remedios/categoria/${id}`);
+                setRemedy(response.data)
             } catch (error) {
-                console.error("Erro ao buscar o remédio:", error);
-                setRemedy(null);
+                console.error("Error when looking for medicine")
+                setRemedy(null)
             } finally {
                 setLoading(false);
             }
-        };
-
-        fetchRemedy();
+            fetchRemedy();
+        }
     }, [id]);
+
+    useEffect(() => {
+        if (resolvedParams?.id) {
+            fetchUser(resolvedParams.id);
+        }
+    }, [resolvedParams?.id]);
 
     if (loading) {
         return (
             <div className={styles.container}>
                 <div className={styles.loadingWrapper}>
                     <Spin size="large" />
-                    <p className={styles.loadingText}>Carregando detalhes do remédio...</p>
+                    <p className={styles.loadingText}>Carregando detalhes do usuário...</p>
                 </div>
             </div>
         );
@@ -48,7 +50,7 @@ export default function RemedyDetail({ params }) {
         return (
             <div className={styles.container}>
                 <div className={styles.errorWrapper}>
-                    <h3>Remédio não encontrado</h3>
+                    <h3>Remedy not found</h3>
                     <Link href="/products">
                         <Button type="primary" icon={<ArrowLeftOutlined />}>
                             Voltar para lista

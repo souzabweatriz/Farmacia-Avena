@@ -136,15 +136,15 @@ export default function Home() {
         <SectionNeed 
           showTitle={true}
           categoryImages={{
-            1: "/icons/1.png",
-            2: "/icons/2.png", 
-            3: "/icons/3.png",
-            4: "/icons/4.png",
-            5: "/icons/5.png",
-            6: "/icons/6.png",
-            7: "/icons/7.png",
-            8: "/icons/8.png",
-            9: "/icons/9.png"
+            1: "/images/estresse.png",
+            2: "/images/dor-abdominal.png", 
+            3: "/images/dor-no-corpo.png",
+            4: "/images/insonia.png",
+            5: "/images/resfriado.png",
+            6: "/images/dor-de-cabeca.png",
+            7: "/images/colicas.png",
+            8: "/images/dor-de-estomago.png",
+            9: "/images/menopausa.png",
           }}
         />
         <div className={styles.text}>

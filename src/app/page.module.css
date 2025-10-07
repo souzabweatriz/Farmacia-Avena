@@ -24,7 +24,7 @@
 
 .title {
   font-weight: bold;
-  background: linear-gradient(90deg, #8F9FBF, #4D8C63, #9bbcb9);
+  background: linear-gradient(90deg, #034e16, #4D8C63, #4d705e);
   background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -33,7 +33,12 @@
   text-align: center;
   margin-bottom: 2rem;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
+
 
 @keyframes rainbow {
   0% {
@@ -43,6 +48,30 @@
     background-position: 100% 50%;
   }
 }
+.textAbout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: #fff;
+  background: linear-gradient(135deg, #3a6b4a 0%, #4cae7b 100%);
+  border-radius: 2rem;
+  width: 50rem;
+  height: auto;
+  min-height: 20rem;
+  line-height: 1.7;
+  text-align: justify;
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 1px 4px 16px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s;
+}
+
+.textAbout:hover {
+  box-shadow: 2px 8px 24px rgba(0, 0, 0, 0.18);
+}
+
 
 .form {
   display: flex;
@@ -236,6 +265,17 @@
   line-height: 1.6;
 }
 
+.sectionNeed{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 50rem;
+  background-color: #f1f1f1ba;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .question{
   margin-top: 2rem;
   font-size: 1.1rem;
@@ -244,7 +284,6 @@
   text-align: center;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .container {
     padding: 1rem 0.5rem;
@@ -274,6 +313,12 @@
   .carouselContainer {
     max-width: 100%;
     padding: 0.5rem;
+  }
+  .textAbout {
+    font-size: 1rem;
+    padding: 1.2rem 0.8rem;
+    border-radius: 1rem;
+    min-height: 13rem;
   }
 }
 

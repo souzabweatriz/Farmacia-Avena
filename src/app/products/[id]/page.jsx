@@ -7,38 +7,40 @@ import Link from "next/link";
 import axios from "axios";
 import styles from "./[id].module.css";
 
-export default function RemedyDetail({ params }) {
-    const { id } = params; // Obtém o ID diretamente dos parâmetros
+export default function RemedyPage({ params }) {
     const [remedy, setRemedy] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        if (!id) return;
-
-        const fetchRemedy = async () => {
-            try {
-                const response = await axios.get(`http://localhost:4000/api/remedios/categoria/${id}`); // URL corrigida
-                if (response.status === 404) {
-                    throw new Error("Remédio não encontrado");
-                }
-                setRemedy(response.data);
-            } catch (error) {
-                console.error("Erro ao buscar o remédio:", error);
+    const fetchRemedy = async (id) => {
+        try {
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/remedios/${id}`);
+            let data = response.data;
+            if (Array.isArray(data)) {
+                setRemedy(data.length > 0 ? data[0] : null);
+            } else if (data && Object.keys(data).length > 0) {
+                setRemedy(data);
+            } else {
                 setRemedy(null);
-            } finally {
-                setLoading(false);
             }
-        };
+        } catch (error) {
+            setRemedy(null);
+        } finally {
+            setLoading(false);
+        }
+    };
 
-        fetchRemedy();
-    }, [id]);
+    useEffect(() => {
+        if (params.id) {
+            fetchRemedy(params.id);
+        }
+    }, [params.id]);
 
     if (loading) {
         return (
-            <div className={styles.container}>
+            <div className={styles.loadingContainer}>
                 <div className={styles.loadingWrapper}>
                     <Spin size="large" />
-                    <p className={styles.loadingText}>Carregando detalhes do remédio...</p>
+                    <p className={styles.loadingText}>Carregando detalhes...</p>
                 </div>
             </div>
         );
@@ -48,12 +50,8 @@ export default function RemedyDetail({ params }) {
         return (
             <div className={styles.container}>
                 <div className={styles.errorWrapper}>
-                    <h3>Remédio não encontrado</h3>
-                    <Link href="/products">
-                        <Button type="primary" icon={<ArrowLeftOutlined />}>
-                            Voltar para lista
-                        </Button>
-                    </Link>
+                    <h3>Chá não encontrado</h3>
+                    <p>O chá que você está procurando não existe ou foi removido.</p>
                 </div>
             </div>
         );
@@ -61,52 +59,41 @@ export default function RemedyDetail({ params }) {
 
     return (
         <div className={styles.container}>
-            <div className={styles.header}>
+            <div className={styles.backButton}>
                 <Link href="/products">
-                    <Button icon={<ArrowLeftOutlined />} className={styles.backButton}>
-                        Voltar
+                    <Button icon={<ArrowLeftOutlined />}>
+                        Voltar para lista
                     </Button>
                 </Link>
-                <h2 className={styles.title}>Detalhes do Remédio</h2>
             </div>
-
-            <div className={styles.contentWrapper}>
-                <Card className={styles.mainCard}>
-                    <div className={styles.remedyHeader}>
-                        <div className={styles.photo}>
-                            {remedy.photo ? (
-                                <img src={remedy.photo} alt={remedy.nome_remedio} className={styles.remedyPhoto} />
-                            ) : (
-                                <FileImageOutlined className={styles.photoIcon} />
-                            )}
-                        </div>
-                        <div className={styles.remedyInfo}>
-                            <h3 className={styles.remedyName}>{remedy.nome_remedio}</h3>
-                            <p className={styles.remedyCategory}>Categoria ID: {remedy.categoria_id}</p>
-                        </div>
-                    </div>
-                </Card>
-
-                <Card
-                    title={<><MedicineBoxOutlined /> Informações Gerais</>}
-                    className={styles.detailCard}
-                >
-                    <Descriptions column={1} bordered>
-                        <Descriptions.Item label="Nome do Remédio">
-                            {remedy.nome_remedio}
-                        </Descriptions.Item>
-                        <Descriptions.Item label="Efeito do Remédio">
-                            {remedy.efeito_remedio}
-                        </Descriptions.Item>
-                        <Descriptions.Item label="Modo de Preparo">
-                            {remedy.modo_preparo}
-                        </Descriptions.Item>
-                        <Descriptions.Item label="Contraindicações">
-                            {remedy.contraindicacoes}
-                        </Descriptions.Item>
-                    </Descriptions>
-                </Card>
-            </div>
+            <Card
+                className={styles.card}
+                title={remedy.nome_remedio}
+                bordered={false}
+                style={{ width: 400, margin: "0 auto" }}
+                cover={
+                    remedy.photo ? (
+                        <img alt={remedy.nome_remedio} src={remedy.photo} style={{ borderRadius: 12 }} />
+                    ) : (
+                        <FileImageOutlined style={{ fontSize: 80, color: "#aaa", margin: "2rem auto" }} />
+                    )
+                }
+            >
+                <Descriptions column={1} bordered>
+                    <Descriptions.Item label={<MedicineBoxOutlined />}>
+                        <strong>Efeito:</strong> {remedy.efeito_remedio || "Não informado"}
+                    </Descriptions.Item>
+                    <Descriptions.Item label={<MedicineBoxOutlined />}>
+                        <strong>Modo de Preparo:</strong> {remedy.modo_preparo || "Não informado"}
+                    </Descriptions.Item>
+                    <Descriptions.Item label={<MedicineBoxOutlined />}>
+                        <strong>Contraindicações:</strong> {remedy.contraindicacoes || "Não informado"}
+                    </Descriptions.Item>
+                    <Descriptions.Item label={<MedicineBoxOutlined />}>
+                        <strong>Categoria:</strong> {remedy.categoria_id || "Não informado"}
+                    </Descriptions.Item>
+                </Descriptions>
+            </Card>
         </div>
     );
 }

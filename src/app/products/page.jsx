@@ -1,6 +1,6 @@
 "use client"
 import styles from "./products.module.css"
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import Link from "next/link";
 import Card from "../../components/Card/Card";
@@ -22,7 +22,7 @@ export default function Home() {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
         setRemedios(Array.isArray(data) ? data : []);
       } catch (error) {
@@ -65,7 +65,7 @@ export default function Home() {
           currentRemedios.map((remedio, index) => (
             <Link
               key={remedio.id || `${remedio.nome_remedio}-${index}`}
-              href={`/remedios/${remedio.id}`}
+              href={`/products/${remedio.id}`}
               className={styles.item}
             >
               <Card remedio={remedio} />
@@ -75,7 +75,7 @@ export default function Home() {
           <p className={styles.noResults}>Nenhum remédio encontrado.</p>
         )}
       </div>
-      
+
       <Pagination
         current={currentPage}
         pageSize={pageSize}
@@ -85,8 +85,8 @@ export default function Home() {
         pageSizeOptions={[5, 10, 20, 50]}
         style={{ marginTop: 24 }}
       />
-      
-      <ToastContainer 
+
+      <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}

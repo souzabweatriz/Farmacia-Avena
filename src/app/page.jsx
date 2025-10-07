@@ -3,7 +3,6 @@ import styles from "./page.module.css"
 import { useState, useEffect } from "react";
 import { Carousel, Button, Modal } from 'antd';
 import BuyCard from "../components/BuyCard/page.jsx";
-import SectionNeed from "../components/SectionNeed/page.jsx";
 
 const perguntasEnfeite = [
   { id: "schedule", texto: "What time of day do you prefer to drink tea?", opcoes: ["Morning", "Afternoon", "Evening"] },
@@ -132,33 +131,30 @@ export default function Home() {
                 place="Visit Farmacia Vida Natural"
               />
             </div>
-      <div className={styles.sectionNeed}>
-        <SectionNeed 
-          showTitle={true}
-          categoryImages={{
-            1: "/images/estresse.png",
-            2: "/images/dor-abdominal.png", 
-            3: "/images/dor-no-corpo.png",
-            4: "/images/insonia.png",
-            5: "/images/resfriado.png",
-            6: "/images/dor-de-cabeca.png",
-            7: "/images/colicas.png",
-            8: "/images/dor-de-estomago.png",
-            9: "/images/menopausa.png",
-          }}
-        />
-        <div className={styles.text}>
-          <p className={styles.question}>Need help choosing the right tea?</p>
-          <p>Take our quick quiz and find the perfect tea for your health and well-being!</p>
-        </div>
-            <div className={styles.modalSection}>
-              <Button type="primary" onClick={showModal} size="large">
-                🌿 Personalized consultation
-              </Button>
-            </div>
-      </div>
 
       </div>
+      <div className={styles.textAbout}>
+       <p>
+    Discover the natural care you deserve.
+
+On our website, we understand that finding healthy and effective alternatives for well-being can be challenging. Many people are searching for safe, natural, and reliable options to relieve pain, boost energy, and truly promote health. That’s why our pharmacy offers a special selection of natural products—teas, powders, and supplements—designed for those seeking balance and quality of life without resorting to harsh chemical formulas.
+
+Here, you’ll find natural solutions to ease everyday symptoms, strengthen your body, and take care of your health in a holistic way. Feel welcomed, guided, and confident to choose what’s best for you.
+
+Welcome to your natural health space!
+</p>
+      </div>
+    <div className={styles.sectionNeed}>
+      <div className={styles.text}>
+        <p className={styles.question}>Need help choosing the right tea?</p>
+        <p>Take our quick quiz and find the perfect tea for your health and well-being!</p>
+      </div>
+          <div className={styles.modalSection}>
+            <Button type="primary" onClick={showModal} size="large">
+              🌿 Personalized consultation
+            </Button>
+          </div>
+    </div>
 
       <Modal
         title="🌿 Personalized Tea Consultation"

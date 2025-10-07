@@ -17,7 +17,6 @@ export default function Home() {
             <Link href="/" className={styles.link}>Home</Link>
             <Link href="/about" className={styles.link}>About</Link>
             <Link href="/products" className={styles.link}>Products</Link>
-            <Link href="/services" className={styles.link}>Services</Link>
             <Link href="/contact" className={styles.link}>Contact</Link> 
             </div>
         </div>

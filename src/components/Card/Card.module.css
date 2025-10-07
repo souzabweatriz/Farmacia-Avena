@@ -9,6 +9,26 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     margin-top: 2rem;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.apresentation{
+    display: flex;
+    width: 27rem;
+    height: 26rem;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-top: 2rem;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }
 
 .item{

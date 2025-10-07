@@ -5,7 +5,6 @@ import { Card, Spin, Button, Descriptions } from "antd";
 import { ArrowLeftOutlined, UserOutlined, EnvironmentOutlined, BankOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import axios from "axios";
-import styles from "./[id].module.css";
 
 export default function RemedyDetail({ params }) {
     const [remedy, setRemedy] = useState(null);

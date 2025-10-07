@@ -3,6 +3,7 @@ import styles from "./page.module.css"
 import { useState, useEffect } from "react";
 import { Carousel, Button, Modal } from 'antd';
 import BuyCard from "../components/BuyCard/page.jsx";
+import SectionNeed from "../components/SectionNeed/page.jsx";
 
 const perguntasEnfeite = [
   { id: "schedule", texto: "What time of day do you prefer to drink tea?", opcoes: ["Morning", "Afternoon", "Evening"] },
@@ -46,7 +47,7 @@ export default function Home() {
     setShowQuestionario(true);
   };
 
- useEffect(() => {
+  useEffect(() => {
     const fetchCategorias = async () => {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categorias`);
@@ -103,82 +104,102 @@ export default function Home() {
         <h1>Avena Pharmacy 🌿</h1>
         <p>Your health comes first!</p>
       </div>
-      <div className={styles.carouselContainer}>
-        <Carousel 
-          arrows 
-          infinite={true} 
-          autoplay 
-          autoplaySpeed={4000}
-          dotPosition="bottom"
-        >
-          <div>
-            <h3 style={carouselContentStyle}>🌿Natural Remedies</h3>
-          </div>
-          <div>
-            <h3 style={carouselContentStyle}>🍃 Medicinal Teas</h3>
-          </div>
-          <div>
-            <h3 style={carouselContentStyle}>💚 Your Natural Health</h3>
-          </div>
-        </Carousel>
-        <div className={styles.lojas}>
-          <BuyCard
-            link="https://www.rotulodobem.com.br/"
-            place="Visit Rotulo do Bem"
-          />
-          <BuyCard
-            link="https://www.farmaciavidanatural.com.br/"
-            place="Visit Farmacia Vida Natural"
-          />
+          <div className={styles.carouselContainer}>
+            <Carousel
+              arrows
+              infinite={true}
+              autoplay
+              autoplaySpeed={4000}
+              dotPosition="bottom"
+            >
+              <div>
+                <h3 style={carouselContentStyle}>🌿Natural Remedies</h3>
+              </div>
+              <div>
+                <h3 style={carouselContentStyle}>🍃 Medicinal Teas</h3>
+              </div>
+              <div>
+                <h3 style={carouselContentStyle}>💚 Your Natural Health</h3>
+              </div>
+            </Carousel>
+            <div className={styles.lojas}>
+              <BuyCard
+                link="https://www.rotulodobem.com.br/"
+                place="Visit Rotulo do Bem"
+              />
+              <BuyCard
+                link="https://www.farmaciavidanatural.com.br/"
+                place="Visit Farmacia Vida Natural"
+              />
+            </div>
+      <div className={styles.sectionNeed}>
+        <SectionNeed 
+          showTitle={true}
+          categoryImages={{
+            1: "/icons/1.png",
+            2: "/icons/2.png", 
+            3: "/icons/3.png",
+            4: "/icons/4.png",
+            5: "/icons/5.png",
+            6: "/icons/6.png",
+            7: "/icons/7.png",
+            8: "/icons/8.png",
+            9: "/icons/9.png"
+          }}
+        />
+        <div className={styles.text}>
+          <p className={styles.question}>Need help choosing the right tea?</p>
+          <p>Take our quick quiz and find the perfect tea for your health and well-being!</p>
         </div>
-        
-        <div className={styles.modalSection}>
-          <Button type="primary" onClick={showModal} size="large">
-            🌿 Consulta Personalizada
-          </Button>
-        </div>
+            <div className={styles.modalSection}>
+              <Button type="primary" onClick={showModal} size="large">
+                🌿 Personalized consultation
+              </Button>
+            </div>
+      </div>
+
       </div>
 
       <Modal
-        title="🌿 Consulta de Chás Personalizados"
+        title="🌿 Personalized Tea Consultation"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
         width={800}
-        okText="Fechar"
-        cancelText="Cancelar"
+        okText="Close"
+        cancelText="Cancell"
         footer={null}
       >
         {!showQuestionario ? (
           <div className={styles.modalContent}>
-            <p>Descubra o chá ideal para você!</p>
-            <p>Responda algumas perguntas rápidas e encontre o produto perfeito para sua saúde e bem-estar.</p>
+            <p>Discover the ideal tea for you!</p>
+            <p>Answer a few quick questions and find the perfect product for your health and well-being.</p>
 
-            
+
             <div className={styles.modalButtons}>
               <Button type="primary" size="large" onClick={startQuestionario}>
-                🚀 Começar Questionário
+                🚀 Start Questionnaire
               </Button>
             </div>
           </div>
         ) : (
           <div className={styles.content}>
             {!resultado && (
-              <form 
-              onSubmit={handleSubmit} 
-              className={styles.form}>
+              <form
+                onSubmit={handleSubmit}
+                className={styles.form}>
                 <div>
                   <p className={styles.perguntasEnfeite}>What are you feeling?</p>
                   <div className={styles.categorias}>
                     {categorias.map(cat => (
-                      <label key={cat.id} style={{cursor: "pointer", padding: "0.5rem 1rem", border: categoria == cat.id ? "2px solid #4D8C63" : "1px solid #ccc", borderRadius: 12, background: categoria == cat.id ? "#e6f4ea" : "#fff", fontWeight: 500 }}>
+                      <label key={cat.id} style={{ cursor: "pointer", padding: "0.5rem 1rem", border: categoria == cat.id ? "2px solid #4D8C63" : "1px solid #ccc", borderRadius: 12, background: categoria == cat.id ? "#e6f4ea" : "#fff", fontWeight: 500 }}>
                         <input
                           type="radio"
                           name="categoria"
                           value={cat.id}
                           checked={categoria == cat.id}
                           onChange={() => setCategoria(cat.id)}
-                          style={{display: "none"}}
+                          style={{ display: "none" }}
                         />
                         {cat.nome_categoria}
                       </label>
@@ -186,8 +207,8 @@ export default function Home() {
                   </div>
                 </div>
                 {perguntasEnfeite.map(perg => (
-                  <div key={perg.id} style={{marginBottom: "1.5rem"}}>
-                    <strong style={{display: "block", marginBottom: "0.8rem", color: "#4D8C63"}}>{perg.texto}</strong>
+                  <div key={perg.id} style={{ marginBottom: "1.5rem" }}>
+                    <strong style={{ display: "block", marginBottom: "0.8rem", color: "#4D8C63" }}>{perg.texto}</strong>
                     <div className={styles.enfeites}>
                       {perg.opcoes.map(op => (
                         <label key={op} className={styles.label + " " + (enfeite[perg.id] === op ? styles.enfeiteLabelSelecionada : "")}>
@@ -197,7 +218,7 @@ export default function Home() {
                             value={op}
                             checked={enfeite[perg.id] === op}
                             onChange={() => handleEnfeite(perg.id, op)}
-                            style={{display: "none"}}
+                            style={{ display: "none" }}
                           />
                           {op}
                         </label>
@@ -215,17 +236,17 @@ export default function Home() {
                 <h3 className={styles.resultTitle}>Recommended tea:</h3>
                 <h4 className={styles.resultSubtitle}>{resultado.nome_remedio}</h4>
                 {resultado.photo && (
-                  <img 
-                    src={resultado.photo} 
-                    alt={resultado.nome_remedio} 
-                    width="200" 
+                  <img
+                    src={resultado.photo}
+                    alt={resultado.nome_remedio}
+                    width="200"
                     className={styles.resultImage}
                   />
                 )}
                 <p className={styles.resultText}><b>Effect:</b> {resultado.efeito_remedio}</p>
                 <p className={styles.resultText}><b>Preparation method:</b> {resultado.modo_preparo}</p>
                 <p className={styles.resultText}><b>Contraindications:</b> {resultado.contraindicacoes}</p>
-                <button 
+                <button
                   className={styles.resetButton}
                   onClick={() => { setResultado(null); setCategoria(""); setEnfeite({}); }}
                 >

@@ -1,0 +1,57 @@
+.backTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #4D8C63, #68d391);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8) translateY(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(77, 140, 99, 0.3);
+}
+
+.backTop.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+}
+
+.backTop:hover {
+    background: linear-gradient(135deg, #68d391, #4D8C63);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 6px 16px rgba(77, 140, 99, 0.4);
+}
+
+.backTop:active {
+    transform: scale(0.95) translateY(0);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .backTop {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .backTop {
+        bottom: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}

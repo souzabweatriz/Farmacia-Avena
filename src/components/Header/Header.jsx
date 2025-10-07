@@ -11,6 +11,7 @@ export default function Home() {
             alt="Farmácia Avena Logo"
             width={120}
             height={110}
+            priority
             />
             <div className={styles.links}>
             <Link href="/" className={styles.link}>Home</Link>

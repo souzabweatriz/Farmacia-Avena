@@ -17,7 +17,7 @@ export default function Home() {
     async function fetchData() {
       try {
         setLoading(true);
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/remedios`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/remedios/${id}`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -48,7 +48,7 @@ export default function Home() {
   if (loading) {
     return (
       <div className={styles.ifLoading}>
-        <h1>Lista de Remédios</h1>
+        <h1 className={styles.title}>Lista de Remédios</h1>
         <div className={styles.loading}>
           <div className={styles.spinner}></div>
           <p className={styles.loadingText}>Carregando remédios...</p>
@@ -59,7 +59,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <h1>Lista de Remédios</h1>
+      <h1 className={styles.h1title}>Lista de Remédios</h1>
       <div className={styles.list}>
         {currentRemedios.length > 0 ? (
           currentRemedios.map((remedio, index) => (

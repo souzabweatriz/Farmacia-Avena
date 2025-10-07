@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import BackTop from "../components/BackTop/BackTop";
 
 const montserrat = localFont({
 src: [
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
         <Header />
           {children}
         <Footer />
+        <BackTop />
       </body>
     </html>
   );

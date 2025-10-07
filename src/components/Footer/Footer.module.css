@@ -1,24 +1,29 @@
 .container {
     background: linear-gradient(135deg, #224040, #1a2f26);
     color: #ffffff;
-    margin-top: auto;
-    flex-shrink: 0;
     width: 100%;
+    min-height: 280px;
+    padding: 2rem 0 0;
 }
 
 .content {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 3rem;
-    padding: 3rem 2rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    padding: 0 2rem;
+    box-sizing: border-box;
 }
 
 .company {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    flex: 2 1 0;
+    min-width: 0;
 }
 
 .logoSection {
@@ -48,24 +53,27 @@
     margin: 0;
 }
 
-.section h4 {
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title {
     font-size: 1.1rem;
     font-weight: 600;
-    margin: 0 0 1.5rem 0;
     color: #ffffff;
-    border-bottom: 2px solid #68d391;
+    border-bottom: 0.125rem solid #68d391;
     display: inline-block;
     padding-bottom: 0.3rem;
 }
 
-.section ul {
+.links {
     list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.section li {
-    margin-bottom: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
 }
 
 .section a {
@@ -79,11 +87,27 @@
     color: #68d391;
 }
 
-.contactInfo p {
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
     color: #b8d8b8;
     font-size: 0.9rem;
-    margin: 0.8rem 0;
     line-height: 1.4;
+    align-items: center;
+}
+
+.sectionContact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
 }
 
 .newsletter h4 {
@@ -91,24 +115,23 @@
     font-weight: 600;
     margin: 0 0 0.5rem 0;
     color: #ffffff;
-    border-bottom: 2px solid #68d391;
+    border-bottom: 0.125rem solid #68d391;
     display: inline-block;
     padding-bottom: 0.3rem;
-}
-
-.newsletter p {
     color: #b8d8b8;
     font-size: 0.9rem;
-    margin: 0.8rem 0 1.5rem 0;
 }
+
 
 .emailForm {
     display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
     margin-bottom: 2rem;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border-radius: 0.5rem;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.2);
 }
 
 .emailForm input {
@@ -121,10 +144,6 @@
     outline: none;
 }
 
-.emailForm input::placeholder {
-    color: #a8c5a0;
-}
-
 .emailForm button {
     padding: 0.9rem 1.2rem;
     border: none;
@@ -135,45 +154,52 @@
     transition: background 0.3s ease;
 }
 
-.emailForm button:hover {
+.emailForm::hover {
     background: #5a7b6a;
 }
 
-.social p {
+.social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
     color: #b8d8b8;
     font-size: 0.85rem;
-    margin: 0 0 0.8rem 0;
+    margin-bottom: 1rem;
 }
 
 .socialIcons {
     display: flex;
     gap: 0.8rem;
+    flex-wrap: wrap;
 }
 
 .socialIcons a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
+    width: 2rem;
+    height: 2rem;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
+    border-radius: 1rem;
     text-decoration: none;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 0.06rem solid rgba(255, 255, 255, 0.2);
 }
 
 .socialIcons a:hover {
     background: #4a6b5a;
-    transform: translateY(-2px);
+    transform: translateY(-0.125rem);
 }
 
 .copyright {
     background: rgba(0, 0, 0, 0.3);
     text-align: center;
-    padding: 1.5rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.2rem 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .copyright p {
@@ -182,20 +208,49 @@
     font-size: 0.85rem;
 }
 
-@media (max-width: 768px) {
-     .content {
-        display: flex;
-        flex-direction: column;
-        padding: 0.8rem 0.3rem 0.5rem;
-        gap: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .logoSection {
+@media (max-width: 1024px) {
+    .container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.4rem;
+        padding: 0;
+    }
+    .content {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem 1rem 1rem;
+        width: 100%;
+    }
+    .company,
+    .section,
+    .sectionContact,
+    .newsletter,
+    .social {
+        align-items: center;
+        width: 100%;
+    }
+    .newsletter {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .copyright {
+        padding: 1rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+    .content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1.5rem 0.5rem 0.5rem;
+        width: 100%;
     }
     .logoSection h3 {
         font-size: 1.1rem;
@@ -203,45 +258,68 @@
     .logoSection p,
     .description,
     .section a,
-    .contactInfo p,
+    .contactInfo,
     .newsletter p,
     .copyright p {
-        font-size: 0.78rem;
-    }
-    .section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
+        font-size: 0.8rem;
     }
     .section h4,
     .newsletter h4 {
-        font-size: 0.92rem;
+        font-size: 1rem;
         text-align: center;
     }
     .socialIcons {
-        display: flex;
-        justify-content: center;
-        gap: 0.6rem;
-        margin-bottom: 1rem;
+        gap: 0.5rem;
     }
     .socialIcons a {
-        width: 2rem;
-        height: 2rem;
-        font-size: 0.95rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .emailForm {
-        display: flex;
-        flex-direction: row;
-        gap: 0.4rem;
-        margin-bottom: 1.2rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.9rem;
     }
     .emailForm input,
     .emailForm button {
         padding: 0.6rem 0.7rem;
         font-size: 0.8rem;
+    }
+    .copyright {
+        padding: 0.7rem 0.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.7rem 0.2rem 0.3rem;
+        gap: 0.7rem;
+        width: 100%;
+    }
+    .logoSection h3 {
+        font-size: 0.9rem;
+    }
+    .logoSection p,
+    .description,
+    .section a,
+    .contactInfo,
+    .newsletter p,
+    .copyright p {
+        font-size: 0.7rem;
+    }
+    .section h4,
+    .newsletter h4 {
+        font-size: 0.8rem;
+    }
+    .socialIcons a {
+        width: 1.2rem;
+        height: 1.2rem;
+        font-size: 0.7rem;
+    }
+    .emailForm input,
+    .emailForm button {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.7rem;
+    }
+    .copyright {
+        padding: 0.5rem 0.2rem;
     }
 }

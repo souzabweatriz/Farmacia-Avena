@@ -27,26 +27,22 @@ export default function Footer() {
                     </p>
                 </div>
                 <div className={styles.section}>
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><Link href="/">Início</Link></li>
-                        <li><Link href="/products">Produtos</Link></li>
-                        <li><Link href="/about">Sobre Nós</Link></li>
-                        <li><Link href="/contact">Contato</Link></li>
+                    <h4 className={styles.title}>Links Rápidos</h4>
+                    <ul className={styles.links}>
+                        <li className={styles.link}><Link href="/">Início</Link></li>
+                        <li className={styles.link}><Link href="/products">Produtos</Link></li>
+                        <li className={styles.link}><Link href="/about">Sobre Nós</Link></li>
+                        <li className={styles.link}><Link href="/contact">Contato</Link></li>
                     </ul>
                 </div>
-
-                {/* Contato */}
-                <div className={styles.section}>
-                    <h4>Contato</h4>
+                <div className={styles.sectionContact}>
+                    <h4 className={styles.title}>Contato</h4>
                     <div className={styles.contactInfo}>
                         <p>📍 Rua da Saúde, 123<br/>São Paulo - SP</p>
                         <p>📞 (11) 1234-5678</p>
                         <p>✉️ contato@farmaciaavena.com</p>
                     </div>
                 </div>
-
-                {/* Newsletter e Social */}
                 <div className={styles.newsletter}>
                     <h4>Newsletter</h4>
                     <form onSubmit={handleSubmit} className={styles.emailForm}>

@@ -1,27 +1,69 @@
-.card{
+.card {
     display: flex;
-    width: 30rem;
-    height: 30rem;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    margin-top: 2rem;
-    background-image: url("../../../public/images/loja-parceira01.png");
+    justify-content: center;
+    width: 40rem;   
+    max-width: 80rem;
+    height: 25rem;
+    background:
+        linear-gradient(135deg, #224040,#224030d4),
+        url('../../../public/images/produtos-naturais.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.title{
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    text-align: center;
-}
-
-.description{
-    font-size: 1rem;
-    color: #555;
-    text-align: center;
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: 1rem;
-    line-height: 1.4;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
 }
 
+.description {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    z-index: 2;
+    position: relative;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    color: #224040;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 0.125rem solid transparent;
+}
+
+.link:hover {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.imageContainer {
+    display: none;
+}

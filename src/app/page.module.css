@@ -217,6 +217,15 @@
   background-color: #3a6b4a;
 }
 
+.lojas{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -257,5 +266,48 @@
   margin: 2rem auto;
   padding: 0 1rem;
   box-sizing: border-box;
+}
+
+.modalSection {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0 2rem;
+}
+
+.modalContent {
+  padding: 1rem 0;
+}
+
+.modalContent p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.questionPreview {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.questionPreview h4 {
+  margin: 0 0 0.8rem 0;
+  color: #4D8C63;
+}
+
+.questionPreview ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.questionPreview li {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 

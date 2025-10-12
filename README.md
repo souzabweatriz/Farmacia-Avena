@@ -206,7 +206,7 @@ npm run lint     # Verificação de código
 ## 📞 Contato
 
 **Desenvolvido por**: Beatriz Souza  
-**Email**: [seu-email@exemplo.com]  
+**Email**: [@ana.b.oliveira56@aluno.senai.br](https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox)  
 **GitHub**: [@souzabweatriz](https://github.com/souzabweatriz)
 
 

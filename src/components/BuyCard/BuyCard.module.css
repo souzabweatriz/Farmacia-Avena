@@ -3,11 +3,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 40rem;   
+    width: 40rem;
     max-width: 80rem;
     height: 25rem;
     background:
-        linear-gradient(135deg, #224040,#224030d4),
+        linear-gradient(135deg, #224040, #224030d4),
         url('../../../public/images/produtos-naturais.png');
     background-size: cover;
     background-position: center;
@@ -17,6 +17,7 @@
     color: #ffffff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .title {
     font-size: 1.5rem;
     font-weight: 700;
@@ -66,4 +67,95 @@
 
 .imageContainer {
     display: none;
+}
+
+@media (max-width: 1024px) {
+    .card {
+        width: 35rem;
+        height: 22rem;
+        background-position: center;
+    }
+
+    .title {
+        font-size: 1.4rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .link {
+        font-size: 0.95rem;
+        padding: 0.8rem 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 28rem;
+        height: 20rem;
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .link {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 90%;
+        height: auto;
+        padding: 2rem 1rem;
+        text-align: center;
+        background-size: cover;
+    }
+
+    .title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+        padding: 0;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .link {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .card {
+        width: 95%;
+        padding: 1.5rem 0.8rem;
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .description {
+        font-size: 0.85rem;
+    }
+
+    .link {
+        font-size: 0.85rem;
+        padding: 0.7rem;
+    }
 }

@@ -284,9 +284,13 @@
   text-align: center;
 }
 
+
+
 @media (max-width: 768px) {
   .container {
-    padding: 1rem 0.5rem;
+    width: 100%;
+    margin-top: 2rem;
+    height: auto;
   }
   
   .form {
@@ -316,7 +320,7 @@
   }
   .textAbout {
     font-size: 1rem;
-    padding: 1.2rem 0.8rem;
+    width: 45rem;
     border-radius: 1rem;
     min-height: 13rem;
   }
@@ -371,5 +375,151 @@
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+}
+
+
+@media (max-width: 360px) {
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .textAbout {
+    font-size: 0.9rem;
+    padding: 1rem;
+    line-height: 1.5;
+  }
+
+  .label {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .submitButton,
+  .resetButton {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .resultTitle {
+    font-size: 1.1rem;
+  }
+
+  .resultSubtitle {
+    font-size: 1rem;
+  }
+
+  .resultText {
+    font-size: 0.9rem;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+
+  .question {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 1rem;
+    margin-top: 1rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .textAbout {
+    width: 100%;
+    min-height: auto;
+    font-size: 0.95rem;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+    line-height: 1.6;
+  }
+
+  .categorias,
+  .enfeites {
+    flex-direction: column;
+    gap: 0.7rem;
+    max-width: 100%;
+  }
+
+  .label {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 0.6rem;
+    border-radius: 6px;
+  }
+
+  .form,
+  .resultadoBox,
+  .sectionNeed {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  .submitButton,
+  .resetButton {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+    border-radius: 6px;
+  }
+
+  .resultTitle {
+    font-size: 1.3rem;
+  }
+
+  .resultSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .resultText {
+    font-size: 0.95rem;
+  }
+
+  .resultImage {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .lojas {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+
+  .question {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .carouselContainer {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 1.5rem auto;
+  }
+
+  .modalSection {
+    margin: 2rem 0 1rem;
+  }
+
 }
 

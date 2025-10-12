@@ -1,0 +1,21 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/layout",{
+
+/***/ "(app-pages-browser)/./src/components/Footer/Footer.module.css":
+/*!*************************************************!*\
+  !*** ./src/components/Footer/Footer.module.css ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval(__webpack_require__.ts("// extracted by mini-css-extract-plugin\nmodule.exports = {\"container\":\"Footer_container__Dj1D9\",\"content\":\"Footer_content__a1cH7\",\"company\":\"Footer_company__dUHMC\",\"logoSection\":\"Footer_logoSection__60cxm\",\"description\":\"Footer_description__s_1Tl\",\"section\":\"Footer_section__N_45n\",\"title\":\"Footer_title__D7snR\",\"links\":\"Footer_links__LGHlK\",\"contactInfo\":\"Footer_contactInfo__bV56D\",\"sectionContact\":\"Footer_sectionContact__nkrCU\",\"newsletter\":\"Footer_newsletter__b40_W\",\"emailForm\":\"Footer_emailForm__kHsNq\",\"social\":\"Footer_social__RYYyg\",\"socialIcons\":\"Footer_socialIcons__7CTKy\",\"copyright\":\"Footer_copyright__1v3uR\"};\n    if(true) {\n      // 1760234087787\n      var cssReload = __webpack_require__(/*! ./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js */ \"(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js\")(module.id, {\"publicPath\":\"/_next/\",\"esModule\":false,\"locals\":true});\n      module.hot.dispose(cssReload);\n      \n    }\n  \nmodule.exports.__checksum = \"3bf226e60310\"\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uL3NyYy9jb21wb25lbnRzL0Zvb3Rlci9Gb290ZXIubW9kdWxlLmNzcyIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBLGtCQUFrQjtBQUNsQixPQUFPLElBQVU7QUFDakI7QUFDQSxzQkFBc0IsbUJBQU8sQ0FBQyx3TUFBa0ksY0FBYyxzREFBc0Q7QUFDcE8sTUFBTSxVQUFVO0FBQ2hCO0FBQ0E7QUFDQTtBQUNBLHlCQUF5QiIsInNvdXJjZXMiOlsiYzpcXFVzZXJzXFxzb3V6YVxcRmFybWFjaWEgQXZlbmFcXEZhcm1hY2lhLUF2ZW5hXFxzcmNcXGNvbXBvbmVudHNcXEZvb3RlclxcRm9vdGVyLm1vZHVsZS5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5tb2R1bGUuZXhwb3J0cyA9IHtcImNvbnRhaW5lclwiOlwiRm9vdGVyX2NvbnRhaW5lcl9fRGoxRDlcIixcImNvbnRlbnRcIjpcIkZvb3Rlcl9jb250ZW50X19hMWNIN1wiLFwiY29tcGFueVwiOlwiRm9vdGVyX2NvbXBhbnlfX2RVSE1DXCIsXCJsb2dvU2VjdGlvblwiOlwiRm9vdGVyX2xvZ29TZWN0aW9uX182MGN4bVwiLFwiZGVzY3JpcHRpb25cIjpcIkZvb3Rlcl9kZXNjcmlwdGlvbl9fc18xVGxcIixcInNlY3Rpb25cIjpcIkZvb3Rlcl9zZWN0aW9uX19OXzQ1blwiLFwidGl0bGVcIjpcIkZvb3Rlcl90aXRsZV9fRDdzblJcIixcImxpbmtzXCI6XCJGb290ZXJfbGlua3NfX0xHSGxLXCIsXCJjb250YWN0SW5mb1wiOlwiRm9vdGVyX2NvbnRhY3RJbmZvX19iVjU2RFwiLFwic2VjdGlvbkNvbnRhY3RcIjpcIkZvb3Rlcl9zZWN0aW9uQ29udGFjdF9fbmtyQ1VcIixcIm5ld3NsZXR0ZXJcIjpcIkZvb3Rlcl9uZXdzbGV0dGVyX19iNDBfV1wiLFwiZW1haWxGb3JtXCI6XCJGb290ZXJfZW1haWxGb3JtX19rSHNOcVwiLFwic29jaWFsXCI6XCJGb290ZXJfc29jaWFsX19SWVl5Z1wiLFwic29jaWFsSWNvbnNcIjpcIkZvb3Rlcl9zb2NpYWxJY29uc19fN0NUS3lcIixcImNvcHlyaWdodFwiOlwiRm9vdGVyX2NvcHlyaWdodF9fMXYzdVJcIn07XG4gICAgaWYobW9kdWxlLmhvdCkge1xuICAgICAgLy8gMTc2MDIzNDA4Nzc4N1xuICAgICAgdmFyIGNzc1JlbG9hZCA9IHJlcXVpcmUoXCJjOi9Vc2Vycy9zb3V6YS9GYXJtYWNpYSBBdmVuYS9GYXJtYWNpYS1BdmVuYS9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2NvbXBpbGVkL21pbmktY3NzLWV4dHJhY3QtcGx1Z2luL2htci9ob3RNb2R1bGVSZXBsYWNlbWVudC5qc1wiKShtb2R1bGUuaWQsIHtcInB1YmxpY1BhdGhcIjpcIi9fbmV4dC9cIixcImVzTW9kdWxlXCI6ZmFsc2UsXCJsb2NhbHNcIjp0cnVlfSk7XG4gICAgICBtb2R1bGUuaG90LmRpc3Bvc2UoY3NzUmVsb2FkKTtcbiAgICAgIFxuICAgIH1cbiAgXG5tb2R1bGUuZXhwb3J0cy5fX2NoZWNrc3VtID0gXCIzYmYyMjZlNjAzMTBcIlxuIl0sIm5hbWVzIjpbXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(app-pages-browser)/./src/components/Footer/Footer.module.css\n"));
+
+/***/ })
+
+});

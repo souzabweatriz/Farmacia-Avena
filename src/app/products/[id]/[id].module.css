@@ -1,7 +1,10 @@
 .container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
 }
 
 .loadingWrapper {
@@ -31,7 +34,15 @@
 }
 
 .backButton {
-    background-color: #1890ff;
+    border: 1px solid #1890ff;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     color: white;
     border: none;
 }
@@ -59,27 +70,13 @@
     gap: 20px;
 }
 
-.photo {
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    border-radius: 8px;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .remedyPhoto {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: flex;
+    padding: 1rem;
 }
 
-.photoIcon {
-    font-size: 48px;
-    color: #aaa;
-}
 
 .remedyInfo {
     flex: 1;
@@ -99,4 +96,118 @@
     padding: 20px;
     border: 1px solid #f0f0f0;
     border-radius: 8px;
+}
+
+.itens{
+    max-width: 50rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    height: auto;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .title {
+        font-size: clamp(1.3rem, 2vw, 1.6rem);
+    }
+
+    .photo {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contentWrapper {
+        gap: 15px;
+    }
+
+    .remedyHeader {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .remedyName {
+        font-size: 1.1rem;
+    }
+
+    .remedyCategory {
+        font-size: 0.85rem;
+    }
+
+    .mainCard,
+    .detailCard {
+        padding: 16px;
+    }
+    .RemedyPhoto {
+        width: 15rem;
+        height: 15rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .backButton {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+
+    .loadingText {
+        font-size: 0.9rem;
+    }
+    .RemedyPhoto {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .mainCard,
+    .detailCard {
+        padding: 12px;
+    }
+
+    .remedyName {
+        font-size: 1rem;
+    }
+
+    .remedyCategory {
+        font-size: 0.8rem;
+    }
+    .RemedyPhoto {
+        width: 10rem;
+        height: 10rem;
+    }
+    .itens{
+        max-width: 10rem;
+    }
 }

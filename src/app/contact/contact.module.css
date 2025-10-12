@@ -75,3 +75,83 @@
   background-color: #4cae7b;
   color: #fff;
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+
+  .content {
+    width: 100%;
+    padding: 1.8rem 1rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .link {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .emailSection {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    margin-top: 3rem;
+    padding: 2rem 1rem;
+  }
+
+  .content {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .link {
+    font-size: 0.95rem;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .email {
+    font-size: 0.9rem;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .container{
+    margin-top: 2rem;
+    padding: 1.5rem 0.8rem;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .link {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+}

@@ -56,3 +56,46 @@
     line-height: 1.4;
     width: 100%;
 }
+
+
+@media (max-width: 1024px) {
+    .card,
+    .apresentation {
+        width: 22rem;
+        height: 22rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .card,
+    .apresentation {
+        width: 50%;
+        height: auto;
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+    .imagem {
+        width: 15rem;
+        height: 15rem;
+    }
+    .itens {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .card,
+    .apresentation {
+        width: 100%;
+        height: auto;
+        padding: 0.8rem;
+        margin-top: 1rem;
+        border-radius: 6px;
+    }
+    .itens {
+        font-size: 0.85rem;
+    }
+}
+

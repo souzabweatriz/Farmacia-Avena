@@ -15,6 +15,7 @@ export default function Card({ remedio }) {
                 }}
             />
             <h2 className={styles.itens}>{remedio.nome_remedio || 'Nome não disponível'}</h2>
+
         </div>
     );
 }

@@ -49,7 +49,7 @@ export default function Home() {
   useEffect(() => {
     const fetchCategorias = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categorias`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}categorias`);
         if (!res.ok) throw new Error();
         const data = await res.json();
         setCategorias(data);
@@ -66,7 +66,7 @@ export default function Home() {
     setErro("");
     setResultado(null);
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/remedios`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}remedios`);
       if (!res.ok) throw new Error("Error fetching teas");
       const data = await res.json();
       const cha = data.find(r => r.categoria_id === Number(categoria));

@@ -8,8 +8,8 @@
 }
 
 
-.apresentation{
-   display: flex;
+.apresentation {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -22,17 +22,17 @@
     box-shadow: 0 2px 4px rgba(17, 0, 0, 0.626);
 }
 
-.photo{
+.photo {
     border-radius: 20rem;
 }
 
-.socialLinks{
+.socialLinks {
     display: flex;
     gap: 15px;
     justify-content: space-between;
 }
 
-.link{
+.link {
     color: #116005;
     text-decoration: none;
     font-size: 1rem;
@@ -111,62 +111,146 @@
     color: #fff;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .apresentation {
-        width: 80%;
-        padding: 1.2rem;
+        width: 70%;
+        padding: 1.5rem;
     }
-    .description, .aboutDescription {
-        max-width: 90vw;
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .description {
         font-size: 1.1rem;
     }
-    .title {
-        font-size: 1.7rem;
-    }
+
     .photo {
-        width: 140px;
-        height: 140px;
-    }
-    .table {
-        font-size: 0.96rem;
+        width: 160px;
+        height: 160px;
     }
 }
 
-
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .apresentation {
-        width: 98vw;
-        min-width: unset;
-        padding: 0.8rem;
+        width: 85%;
+        padding: 1.2rem;
     }
+
     .title {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
+        font-size: 1.6rem;
     }
-    .description, .aboutDescription {
+
+    .description {
         font-size: 1rem;
-        margin: 1rem 0;
     }
+
     .photo {
-        width: 90px;
-        height: 90px;
+        width: 120px;
+        height: 120px;
     }
+
+    .socialLinks {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .link {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.8rem;
+    }
+
     .section {
-        padding: 10px;
-        margin-bottom: 24px;
+        padding: 1rem;
     }
+
+    .table {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .apresentation {
+        width: 95%;
+        padding: 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .title {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .description,
+    .aboutDescription {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .socialLinks {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .link {
+        width: 100%;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
     .codeBlock {
         font-size: 0.9rem;
-        padding: 0.7rem;
+        padding: 0.6rem;
     }
-    .table th, .table td {
-        padding: 7px;
+
+    .table {
+        font-size: 0.85rem;
     }
-    .socialLinks {
-        gap: 8px;
+
+    .table th,
+    .table td {
+        padding: 6px;
     }
+}
+
+@media (max-width: 360px) {
+    .apresentation {
+        width: 100%;
+        padding: 0.8rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .description,
+    .aboutDescription {
+        font-size: 0.85rem;
+    }
+
+    .photo {
+        width: 80px;
+        height: 80px;
+    }
+
     .link {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.7rem;
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+
+    .table {
+        font-size: 0.8rem;
     }
 }

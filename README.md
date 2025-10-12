@@ -59,46 +59,34 @@ Democratizar o acesso ao conhecimento sobre plantas medicinais e remédios natur
 - Backend API rodando na porta 4000
 
 ### **1. Clonar o Repositório**
-\`\`\`bash
+```bash
 git clone https://github.com/souzabweatriz/Farmacia-Avena.git
 cd Farmacia-Avena
-\`\`\`
+```
 
 ### **2. Instalar Dependências**
-\`\`\`bash
+```bash
 npm install
-# ou
-yarn install
-\`\`\`
+```
 
 ### **3. Configurar Variáveis de Ambiente**
 Crie um arquivo \`.env.local\` na raiz do projeto com as seguintes variáveis:
 
-\`\`\`bash
+```bash
 # API Principal - Endpoint para remédios
 NEXT_PUBLIC_API_URL=http://localhost:4000/api
 
 # API de Categorias - Endpoint específico para categorias
 CATEGORIA_API_URL=http://localhost:4000/api/categoria/
-\`\`\`
+```
 
 ### **4. Executar em Desenvolvimento**
-\`\`\`bash
+```bash
 npm run dev
-# ou
-yarn dev
-\`\`\`
+```
 
 O projeto estará disponível em: \`http://localhost:3000\`
 
-### **5. Build para Produção**
-\`\`\`bash
-npm run build
-npm start
-# ou
-yarn build
-yarn start
-\`\`\`
 
 ## 📁 Estrutura do Projeto
 

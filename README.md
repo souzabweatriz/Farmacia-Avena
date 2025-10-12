@@ -1,7 +1,5 @@
 # 🌿 Farmácia Avena
 
-![Farmácia Avena Logo](public/images/logoAvena.png)
-
 ## 📖 Sobre o Projeto
 
 A **Farmácia Avena** é uma aplicação web moderna desenvolvida com Next.js 15, especializada em remédios naturais e fitoterapia. O projeto oferece uma interface elegante e responsiva para consulta de remédios, suas propriedades medicinais, métodos de preparo e contraindicações.
